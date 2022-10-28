@@ -34,14 +34,6 @@ const News = () => {
   }, []);
   return (
     <div className="m-2 md:m-4 mt-12 p-2 md:p-4">
-      <div className="flex items-center leading-8 gap-3 border-b-1 border-color p-3">
-        <img className="rounded-full h-10 w-10" src={companyInfo[0].logo} alt={companyInfo[0].name} />
-        <div>
-          <p className="font-semibold dark:text-gray-200">Articles for</p>
-          <p className="text-gray-500 text-sm dark:text-gray-400">{`${userProfileData[0].firstname} ${userProfileData[0].lastname}`}</p>
-        </div>
-      </div>
-
       <div className="flex justify-center text-7xl italic gap-3">
         <div className={currentMode === 'Dark' ? 'text-white' : 'text-black'}>
           Financial News

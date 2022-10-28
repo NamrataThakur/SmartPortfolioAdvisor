@@ -645,18 +645,12 @@ def create_dataset(x, y, time_step=40, future_step=10, distance=10):
 def construct_model(input_shape, future_step, optimizer="adam"):
     LSTM_model = Sequential()
 
-    LSTM_model.add(LSTM(units = 128, return_sequences = True, input_shape = input_shape))
-    LSTM_model.add(Dropout(0.2))
-
-    LSTM_model.add(LSTM(units = 64, return_sequences = True))
-    LSTM_model.add(Dropout(0.2))
-
-    LSTM_model.add(LSTM(units = 30))
+    LSTM_model.add(LSTM(units = 64, input_shape = input_shape))
     LSTM_model.add(Dropout(0.2))
 
     LSTM_model.add(Dense(units = future_step))
 
-    adam = tf.optimizers.Adam(learning_rate=0.0001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
+    adam = tf.optimizers.Adam(learning_rate=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
     LSTM_model.compile(optimizer = adam, loss = 'mean_squared_error')
     return LSTM_model
     
@@ -691,7 +685,7 @@ def train_model(stockticker, start_date, end_date, time_step = 40, future_step =
     LSTM_model.summary()
     
     # fit model
-    history = LSTM_model.fit(x_train, y_train, validation_split=0.2, validation_data=(x_val, y_val), epochs = 80, batch_size=5)
+    history = LSTM_model.fit(x_train, y_train, validation_split=0.2, validation_data=(x_val, y_val), epochs = 60, batch_size=10)
     
     # plot result
     plt.plot(history.history['loss'])
