@@ -20,10 +20,10 @@ In this project, we demonstrate the use of Sharpe Ratio as a measure of portfoli
 
 | Official Full Name  | Student ID | Work Items | Email |
 | :------------ |:---------------:| :-----| :-----|
-| Namrata Thakur | A0261619B | |  |
-| Ouyang Hui | A0261875U | 1. LSTM model 2. Project report writing 3. Bug fixing 4. Project report writing | e0983269@u.nus.edu |
-| See Jia Fong Grace | A0261797M |  | |
-| Wang Zhipeng | A0261980Y |  |  |
+| Namrata Thakur | A0261619B | 1. Integration 2. Setup guide writing 3. Video creation | e0983013@u.nus.edu |
+| Ouyang Hui | A0261875U | 1. LSTM model 2. Project report writing 3. Bug fixing 4. Video creation| e0983269@u.nus.edu |
+| See Jia Fong Grace | A0261797M | 1.GA Algo 2. Project report writing 3. Bug fixing 4. Integration & deployment 5. Video Creation | e0983191@u.nus.edu |
+| Wang Zhipeng | A0261980Y | 1. Frontend Lead 2. Project report writing | e0983013@u.nus.edu  |
 
 ---
 
