@@ -16,6 +16,7 @@ import {
 import { lineCustomSeries, searchData } from '../../data/dummy';
 import { useStateContext } from '../../contexts/ContextProvider';
 
+const config=require('../../config');
 const StockChart = () => {
     const { stockforecast, setStockforecast } = useStateContext();
     const [date, setDate] = useState([]);
@@ -32,7 +33,7 @@ const StockChart = () => {
           }
         }
         console.log(`symbol ${symbol}`);
-        Axios.post('http://localhost:3001/stockforecast', { stock: symbol }).then((respose) => {
+        Axios.post(config.database.url+'/stockforecast', { stock: symbol }).then((respose) => {
             if (isMounted) {
                 const { data } = respose;
                 console.log(data);

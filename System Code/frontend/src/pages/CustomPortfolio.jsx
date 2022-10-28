@@ -4,13 +4,13 @@ import { TextBoxComponent } from '@syncfusion/ej2-react-inputs';
 import { v4 as uuidv4 } from 'uuid';
 import io from 'socket.io-client';
 import { ConsoleAccordion } from '../components';
-
+const config = require('../config');
 const axios = require('axios');
 
-const socket = io('http://localhost:5000');
+const socket = io(config.flask.url);
 
 const stocktickers = ['AAPL', 'MSFT', 'AMZN', 'TSLA', 'GOOG', 'BRK-B', 'UNH', 'JNJ', 'XOM', 'PG', 'META', 'JPM', 'NVDA', 'V', 'HD', 'CVX', 'ABBV', 'MA', 'PFE', 'LLY', 'PEP'];
-const customga = 'http://localhost:5000/customga';
+const customga = config.flask.url+'/customga';
 
 const CustomPortfolio = () => {
   const [messages, setMessages] = useState([]);

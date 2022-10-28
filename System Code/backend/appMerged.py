@@ -22,7 +22,7 @@ import seaborn as sns
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
 #from tensorflow import keras
-
+import os
 import tensorflow as tf 
 from tensorflow.keras import optimizers
 from tensorflow.keras.models import Sequential
@@ -372,6 +372,17 @@ def sendGAEpochToFrontend(enddate, runId, epoch, stocktickers, population, reqId
         memberChromosome['sharpe'] = population[i][populationLen-1:][0]
         data['population'].append(memberChromosome)
     socketio.emit('my_response', data);
+    
+def sendGAResultToFrontend(enddate, runId, stocktickers, allocPerc, sharpeRatio,reqId): 
+    data = {}
+    data['type'] = 'gaResults'
+    data['msgid'] = reqId
+    data['runid'] = runId
+    data['stocktickers'] = stocktickers
+    data['allocPerc'] = allocPerc
+    data['sharpe'] = sharpeRatio
+    #print(data)
+    socketio.emit('my_response', data);
 
 
 def initialize(stocktickers, startdate, enddate, depth):
@@ -430,10 +441,11 @@ def runGA(pop_size, stocktickers, maxStocks, maxIterations, selectionRate, cross
            print("Depth : ", depth)
            stocks = topElite[topElite['alloc'] > 0]
            stockName = stocks['ticker'].values
-           allocationPerc = stocks['alloc'].values
+           allocationPerc = stocks['alloc'].tolist()
            print("stockName", stockName)
            print("allocationPerc", allocationPerc)
            writeGAResults(enddate, runId, iteration,stockName, allocationPerc, sharpeRatio, expectedRisk)
+           sendGAResultToFrontend(enddate, runId, stocktickers, allocationPerc, sharpeRatio,reqId)
            threads.remove((reqId, threading.current_thread()))
            print("threads size ", len(threads))
            return stockName,allocationPerc 
@@ -447,10 +459,11 @@ def runGA(pop_size, stocktickers, maxStocks, maxIterations, selectionRate, cross
         print("Depth : ", depth)
         stocks = topElite[topElite['alloc'] > 0]
         stockName = stocks['ticker'].values
-        allocationPerc = stocks['alloc'].values
+        allocationPerc = stocks['alloc'].tolist()
         print("stockName", stockName)
         print("allocationPerc", allocationPerc)
         writeGAResults(enddate, runId, iteration, stockName,allocationPerc, sharpeRatio, expectedRisk)
+        sendGAResultToFrontend(enddate, runId, stocktickers, allocationPerc, sharpeRatio,reqId)
         threads.remove((reqId, threading.current_thread()))
         print("threads size ", len(threads))
         return stockName,allocationPerc
@@ -790,7 +803,7 @@ def getLSTM():
     # List of stocks
     stocktickers=['AAPL','MSFT','AMZN','TSLA','GOOG','BRK-B','UNH','JNJ','XOM','META','NVDA','JPM','PG','V','HD','CVX','MA','PFE','LLY']
     # connect to database
-    db = os.path.join("/home/sma/Desktop/SmartPortfolioAdvisor-main/System Code/", "frontend/src/database/lstm_prediction.db')
+    db = os.path.join("/home/sma/Desktop/SmartPortfolioAdvisor-main/System Code/", "frontend/src/database/lstm_prediction.db")
     conn = sqlite3.connect(db)
     cursor = conn.cursor()
     table_name = "predictions"

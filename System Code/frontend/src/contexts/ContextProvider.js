@@ -41,12 +41,12 @@ export const ContextProvider = ({ children }) => {
   const [stockportfolio, setStockportfolio] = useState([]);
   const [stockforecast, setStockforecast] = useState([]);
   const navigate = useNavigate();
-
+  const config = require('../config');
   // useEffect(() => {setStockportfolio(getStockportfolio(formatDate(day)))},[day])
 
   useEffect(() => {
     let isMounted = true;
-    Axios.post('http://localhost:3001/stockportfolio', { date: formatDate(day) }).then((respose) => {
+    Axios.post(config.database.url+'/stockportfolio', { date: formatDate(day) }).then((respose) => {
         if (isMounted) {
             const { data } = respose;
             // console.log(data);

@@ -1,13 +1,14 @@
 import React, { useState, useRef } from 'react';
 import GAHyperparameters from './GAHyperparameters';
 import GAEpoch from './GAEpoch';
+import GAResult from './GAResult';
 
 const ConsoleAccordion = ({ message, curState }) => {
   const [active, setActive] = useState(curState);
   const [height, setHeight] = useState('0px');
   const [rotate, setRotate] = useState('transform duration-700 ease');
   const contentSpace = useRef(null);
-  const content = message.type === 'gahyperparameters' ? <GAHyperparameters message={message} /> : message.type === 'gaEpoch' ? <GAEpoch message={message} /> : 'default';
+  const content = message.type === 'gahyperparameters' ? <GAHyperparameters message={message} /> : message.type === 'gaEpoch' ? <GAEpoch message={message} /> : message.type === 'gaResults' ? <GAResult message={message} /> :'default';
 
   function toggleAccordion() {
     console.log('Toggle Accordions!');
@@ -21,8 +22,9 @@ const ConsoleAccordion = ({ message, curState }) => {
         <p className="inline-block text-footnote light">
           {
             message.type === 'gahyperparameters' ? 'GA Hyperparameters (Click here)'
-            : ((message.type === 'gaEpoch') ? `[${message.runid}] Epoch ${message.epoch} ======== Best Sharpe: ${message.population[0].sharpe} (Click here)`
-            : 'default')
+            :((message.type === 'gaEpoch') ? `[${message.runid}] Epoch ${message.epoch} ======== Best Sharpe: ${message.population[0].sharpe} (Click here)`
+            :((message.type === 'gaResults') ? `GA RESULT ======== BEST SHARPE: ${message.sharpe} (Click here)`
+            :'default'))
           }
         </p>
         <svg data-accordion-icon className={`${rotate} inline-block w-6 h-6 shrink-0`} fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

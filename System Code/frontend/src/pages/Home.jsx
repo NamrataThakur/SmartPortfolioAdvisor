@@ -4,6 +4,7 @@ import { SparkLine, Pie, MyDayPicker } from '../components';
 import { useStateContext } from '../contexts/ContextProvider';
 import MyListGroup from '../components/MyListGroup';
 import { logo } from '../data/logo';
+const config=require('../config');
 
 const findLogo = (stockName) => {
     for (let i = 0; i < logo.length; i++) {
@@ -21,7 +22,7 @@ const PickDayButton = ({ currentMode, currentColor, handleClick, isClicked }) =>
 );
 
 const getStockportfolio = (date) => {
-    Axios.post('http://localhost:3001/stockportfolio', { date }).then((respose) => {
+    Axios.post(config.database.url+'/stockportfolio', { date }).then((respose) => {
         const { data } = respose;
         // console.log(data);
         const stocktickers = data.stocktickers.replace('[', '').replace(']', '').replace(/\'/g, '').split(/,\s*/);
@@ -52,7 +53,7 @@ const Home = () => {
 
     useEffect(() => {
         let isMounted = true;
-        Axios.post('http://localhost:3001/stockportfolio', { date: '2022-08-22' }).then((respose) => {
+        Axios.post(config.database.url+'/stockportfolio', { date: '2022-08-22' }).then((respose) => {
             if (isMounted) {
                 const { data } = respose;
                 const stocktickers = data.stocktickers.replace('[', '').replace(']', '').replace(/\'/g, '').split(/,\s*/);
@@ -80,7 +81,7 @@ const Home = () => {
             stocks.push(todayStockportfolio[i].x);
         }
         console.log(stocks);
-        Axios.post('http://localhost:3001/groupstockforecast', { stocks }).then((respose) => {
+        Axios.post(config.database.url+'/groupstockforecast', { stocks }).then((respose) => {
             if (isMounted) {
                 const { data } = respose;
                 console.log(data);

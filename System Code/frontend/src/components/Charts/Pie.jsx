@@ -34,7 +34,7 @@ const Doughnut = ({ id, data, legendVisiblity, height }) => {
             position: 'Inside',
             font: {
               fontWeight: '600',
-              color: '#fff',
+              color: '#C0C0C0',
               size: '16px',
             },
           }}

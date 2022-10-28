@@ -8,6 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 app.post('/stockportfolio', (req, res) => {
+    console.log('in stockportfolio');
     const { date } = req.body;
     const db = new sqlite3.Database('../database/stocks.db', sqlite3.OPEN_READWRITE, (err) => {
         if (err) {
