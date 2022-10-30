@@ -4,10 +4,10 @@ const config = {
 		"port": 3000
     },
 	"database": {
-		"url": "http://128.199.188.183:3001"
+		"url": "http://localhost:3001"
 	},
 	"flask": {
-		"url": "http://128.199.188.183:5000"
+		"url": "http://localhost:5000"
 	}
 		
  };
