@@ -25,6 +25,19 @@ const formatDate = (date) => {
   return [year, month, day].join('-');
 };
 
+const getDay = () => {
+  let day = new Date()
+  if(day.getDay()==6){
+    return new Date(new Date()-24*3600*1000)
+  }
+  else if (day.getDay()==0){
+    return new Date(new Date()-2*24*3600*1000)
+  }
+  else{
+    return new Date()
+  }
+}
+
 export const ContextProvider = ({ children }) => {
   const [screenSize, setScreenSize] = useState(undefined);
   const [currentColor, setCurrentColor] = useState('#03C9D7');
@@ -35,7 +48,7 @@ export const ContextProvider = ({ children }) => {
   const [stockData, setStockData] = useState(undefined);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
-  const [day, setDay] = useState(new Date('2022-08-22'));
+  const [day, setDay] = useState(getDay());
   const [selectedStock, setSelectedStock] = useState([]);
   // const [stockportfolio, setStockportfolio] = useState(getStockportfolio(new Date().toLocaleDateString()));
   const [stockportfolio, setStockportfolio] = useState([]);

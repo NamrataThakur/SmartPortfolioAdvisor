@@ -7,9 +7,6 @@
 ---
 
 ## SECTION 2 : EXECUTIVE SUMMARY
-There is a common saying that monkeys make better fund managers than humans. This was based on a series of experiments run, the most famous one being a Chimpanzee, Raven,  who threw 10 darts to pick stocks from a basket of 133 internet companies. Her stock picks delivered a 213 per cent gain in 1999, outperforming more than 6,000 professional brokers on Wall Street.
-
-How can the average investor make quality investment decisions? Other than cherry picking stocks, there are many options in the market today, from mutual funds, to index investing and roboadvisories. One way to assess a portfolio’s health is by measuring its returns relative to its risk, to understand if the portfolio is generating a reasonable return for the risk it is assuming. The Sharpe Ratio, proposed by William Sharpe, is one of the most popular methods that is used to measure risk adjusted relative returns in Modern Portfolio Theory.
 
 In this project, we demonstrate the use of Sharpe Ratio as a measure of portfolio fitness to evolve a portfolio of stocks using Genetic Algorithm. We also apply LSTM modeling to forecast future stock prices.
 
@@ -20,16 +17,18 @@ In this project, we demonstrate the use of Sharpe Ratio as a measure of portfoli
 
 | Official Full Name  | Student ID | Work Items | Email |
 | :------------ |:---------------:| :-----| :-----|
-| Namrata Thakur | A0261619B | 1. Integration 2. Setup guide writing 3. Video creation | e0983013@u.nus.edu |
+| Namrata Thakur | A0261619B | 1. Integration 2. Installation and User Guide writing 3. Video creation 4. Bug Fixing | e0983013@u.nus.edu |
 | Ouyang Hui | A0261875U | 1. LSTM model 2. Project report writing 3. Bug fixing 4. Video creation| e0983269@u.nus.edu |
 | See Jia Fong Grace | A0261797M | 1.GA Algo 2. Project report writing 3. Bug fixing 4. Integration & deployment 5. Video Creation | e0983191@u.nus.edu |
-| Wang Zhipeng | A0261980Y | 1. Frontend Lead 2. Project report writing | e0983013@u.nus.edu  |
+| Wang Zhipeng | A0261980Y | 1. Frontend Lead 2.Backend 3. Project report writing 4. Bug fixing | e0983374@u.nus.edu  |
 
 ---
 
 ## SECTION 4 : VIDEO OF SYSTEM MODELLING & USE CASE DEMO
 
-Link to video
+###Link to video
+Marketing Video: https://youtu.be/ImGwigIEQMo <br />
+Technical Video: https://youtu.be/YzPpZMfF-SI <br />
 
 ---
 
@@ -38,19 +37,14 @@ Link to video
 `Refer to User Guide at Github Folder: ProjectReport`
 
 ### To run the system in local machine:
-#### Requirements
+#### System Requirements
+Ubuntu 20.04  <br />
+At least 2 Gb of hard disk space
 
+#### Application Requirements
+For frontend: application requirements to be installed using npm for dependencies listed in package.json <br />
+For backend: application requiremetns to be installed using pip for dependencies listed in requirements.txt
 
-> Clone repo
->
-> 
-> Install dependencies
->
-> $ npm install
->
-> run server
->
-> $ npm start
 
 
 ---
@@ -113,6 +107,7 @@ Link to video
 
 `Refer to Github Folder: Miscellaneous`
 
+Efficient Frontier notebook used to generate the efficient frontier images. Note that the database to run the notebook can be found at Frontend/src/database/stocks.db
 
 ---
 
