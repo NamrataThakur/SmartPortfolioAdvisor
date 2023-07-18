@@ -26,7 +26,7 @@ In this project, we demonstrate the use of Sharpe Ratio as a measure of portfoli
 
 ## SECTION 4 : VIDEO OF SYSTEM MODELLING & USE CASE DEMO
 
-###Link to video
+###Link to video<br />
 Marketing Video: https://youtu.be/ImGwigIEQMo <br />
 Technical Video: https://youtu.be/YzPpZMfF-SI <br />
 
@@ -34,7 +34,7 @@ Technical Video: https://youtu.be/YzPpZMfF-SI <br />
 
 ## SECTION 5 : USER GUIDE
 
-`Refer to User Guide at Github Folder: ProjectReport`
+`Refer to User Guide at Github Folder: User Guide`
 
 ### To run the system in local machine:
 #### System Requirements

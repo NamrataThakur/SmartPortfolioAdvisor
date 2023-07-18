@@ -22,7 +22,7 @@ const PickDayButton = ({ currentMode, currentColor, handleClick, isClicked }) =>
 );
 
 const getStockportfolio = (date) => {
-    Axios.post(config.database.url+'/stockportfolio', { date }).then((respose) => {
+    Axios.post(config.database.url+'/stockportfoliolatest', { date }).then((respose) => {
         const { data } = respose;
         // console.log(data);
         const stocktickers = data.stocktickers.replace('[', '').replace(']', '').replace(/\'/g, '').split(/,\s*/);
@@ -41,6 +41,20 @@ const getStockportfolio = (date) => {
     });
 };
 
+const formatDate = (date) => {
+  var d = new Date(date),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
+
+  if (month.length < 2) 
+      month = '0' + month;
+  if (day.length < 2) 
+      day = '0' + day;
+
+  return [year, month, day].join('-');
+}
+
 const Home = () => {
     const { currentColor, currentMode, handleClick, isClicked } = useStateContext();
     // const [todayStockportfolio,setTodayStockportfolio ] = useState(getStockportfolio("2022-08-22"));
@@ -53,7 +67,7 @@ const Home = () => {
 
     useEffect(() => {
         let isMounted = true;
-        Axios.post(config.database.url+'/stockportfolio', { date: '2022-08-22' }).then((respose) => {
+        Axios.post(config.database.url+'/stockportfoliolatest', { date: formatDate(new Date()) }).then((respose) => {
             if (isMounted) {
                 const { data } = respose;
                 const stocktickers = data.stocktickers.replace('[', '').replace(']', '').replace(/\'/g, '').split(/,\s*/);

@@ -20,8 +20,32 @@ app.post('/stockportfolio', (req, res) => {
     db.serialize(() => {
         // db.each(`SELECT stocktickers,chromosome,max(sharpe) FROM garesults WHERE date='${day}'`, (err, row) => {
         db.each(
-'SELECT date,stocktickers,chromosome,max(sharpe) as sharpe,return,risk FROM garesults WHERE date is ?',
+            'SELECT date,stocktickers,chromosome,max(sharpe) as sharpe,return,risk FROM garesults WHERE date is ?',
         [date],
+        (err, row) => {
+            if (err) {
+                console.error(err.message);
+            }
+            res.send(row);
+        },
+);
+    });
+});
+
+app.post('/stockportfoliolatest', (req, res) => {
+    console.log('in stockportfolio');
+    const { date } = req.body;
+    const db = new sqlite3.Database('../database/stocks.db', sqlite3.OPEN_READWRITE, (err) => {
+        if (err) {
+            console.error(err.message);
+        } else {
+            console.log('Connected to the stocks database.');
+        }
+    });
+    db.serialize(() => {
+        // db.each(`SELECT stocktickers,chromosome,max(sharpe) FROM garesults WHERE date='${day}'`, (err, row) => {
+        db.each(
+           'SELECT max(a.date) as date ,stocktickers,chromosome,a.sharpe,a.return,a.risk FROM (SELECT date,stocktickers,chromosome,max(sharpe) as sharpe,return,risk FROM garesults group by date) as a',
         (err, row) => {
             if (err) {
                 console.error(err.message);
