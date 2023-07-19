@@ -28,7 +28,8 @@ In this project, we demonstrate the use of Sharpe Ratio as a measure of portfoli
 
 ###Link to video<br />
 Marketing Video: https://youtu.be/ImGwigIEQMo <br />
-Technical Video: https://youtu.be/YzPpZMfF-SI <br />
+Technical Video: [![Final Application Demo Video](https://img.youtube.com/vi/YzPpZMfF-SI/0.jpg)](https://youtu.be/YzPpZMfF-SI "Click to Play")
+ <br />
 
 ---
 
