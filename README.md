@@ -1,4 +1,4 @@
-## SECTION 1 : PROJECT TITLE
+## SECTION 1: PROJECT TITLE
 ## SmartPortfolioAdvisor
 
 <img src="./img/SmartPortfolioAdvisor.png"
@@ -6,14 +6,14 @@
 
 ---
 
-## SECTION 2 : EXECUTIVE SUMMARY
+## SECTION 2: EXECUTIVE SUMMARY
 
 In this project, we demonstrate the use of Sharpe Ratio as a measure of portfolio fitness to evolve a portfolio of stocks using Genetic Algorithm. We also apply LSTM modeling to forecast future stock prices.
 
 
 ---
 
-## SECTION 3 : CREDITS / PROJECT CONTRIBUTION
+## SECTION 3: CREDITS / PROJECT CONTRIBUTION
 
 | Official Full Name  | Student ID | Work Items | Email |
 | :------------ |:---------------:| :-----| :-----|
@@ -24,9 +24,7 @@ In this project, we demonstrate the use of Sharpe Ratio as a measure of portfoli
 
 ---
 
-## SECTION 4 : VIDEO OF SYSTEM MODELLING & USE CASE DEMO
-
-###Link to video<br />
+## SECTION 4: VIDEO OF SYSTEM MODELLING & USE CASE DEMO
 
 <b>Marketing Video:</b> <br /><br /> [![Final Application Demo Video](https://img.youtube.com/vi/ImGwigIEQMo/0.jpg)](https://youtu.be/ImGwigIEQMo "Click to Play")
 
@@ -35,23 +33,23 @@ In this project, we demonstrate the use of Sharpe Ratio as a measure of portfoli
 
 ---
 
-## SECTION 5 : USER GUIDE
+## SECTION 5: USER GUIDE
 
-`Refer to User Guide at Github Folder: User Guide`
+`Refer to User Guide at GitHub Folder: User Guide`
 
-### To run the system in local machine:
+### To run the system in the local machine:
 #### System Requirements
 Ubuntu 20.04  <br />
-At least 2 Gb of hard disk space
+At least 2 GB of hard disk space
 
 #### Application Requirements
 For frontend: application requirements to be installed using npm for dependencies listed in package.json <br />
-For backend: application requiremetns to be installed using pip for dependencies listed in requirements.txt
+For backend: application requirements to be installed using pip for dependencies listed in requirements.txt
 
 
 
 ---
-## SECTION 6 : PROJECT REPORT / PAPER
+## SECTION 6: PROJECT REPORT / PAPER
 
 `Refer to project report at Github Folder: ProjectReport`
 
